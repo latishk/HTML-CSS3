@@ -1,0 +1,80 @@
+/*
+ *	Bad Script Handwritten font-face
+ */
+
+@font-face {
+	font-family: BadScript;
+	src: url('../fonts/Bad-Script-Regular.ttf');
+}
+
+/*
+ *	Titillium Web font-face
+ */
+
+@font-face {
+	font-family: Titillium Web Regular;
+	src: url('../fonts/Titillium-Web-Regular.ttf');
+}
+
+@font-face {
+	font-family: Titillium Web Italic;
+	src: url('../fonts/Titillium-Web-Italic.ttf');
+}
+
+@font-face {
+	font-family: Titillium Web Light;
+	src: url('../fonts/Titillium-Web-Light.ttf');
+}
+
+@font-face {
+	font-family: Titillium Web Light Italic;
+	src: url('../fonts/Titillium-Web-Light-Italic.ttf');
+}
+
+@font-face {
+	font-family: Titillium Web Bold;
+	src: url('../fonts/Titillium-Web-Bold.ttf');
+}
+
+@font-face {
+	font-family: Titillium Web Bold Italic;
+	src: url('../fonts/Titillium-Web-Bold-Italic.ttf');
+}
+
+@font-face {
+	font-family: Titillium Web Black;
+	src: url('../fonts/Titillium-Web-Black.ttf');
+}
+
+/*
+ *	Isonorm font-face
+ */
+
+@font-face {
+	font-family: Isonorm;
+	src: url('../fonts/Isonorm-MN.ttf');
+}
+
+/*
+ *	Charter font-face
+ */
+
+@font-face {
+	font-family: Charter Regular;
+	src: url('../fonts/Charter-Regular.ttf');
+}
+
+@font-face {
+	font-family: Charter Italic;
+	src: url('../fonts/Charter-Italic.ttf');
+}
+
+@font-face {
+	font-family: Charter Bold;
+	src: url('../fonts/Charter-Bold.ttf');
+}
+
+@font-face {
+	font-family: Charter Bold Small Caps;
+	src: url('../fonts/Charter-Bold-Small-Caps.ttf');
+}

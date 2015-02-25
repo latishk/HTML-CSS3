@@ -1,0 +1,18 @@
+.one-more-thing {
+	display:box;
+	display:-moz-box;
+	display:-webkit-box;
+
+	box-pack:center;
+	-moz-box-pack:center;
+	-webkit-box-pack:center;
+
+	box-align:center;
+	-moz-box-align:center;
+	-webkit-box-align:center;
+
+	text-align: center;
+	font-family: BadScript;
+	font-size: 96px;
+	letter-spacing: 0.08em;
+}

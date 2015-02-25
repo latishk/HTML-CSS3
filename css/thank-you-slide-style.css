@@ -1,0 +1,17 @@
+.thank-you-text {
+	display:box;
+	display:-moz-box;
+	display:-webkit-box;
+
+	box-pack:center;
+	-moz-box-pack:center;
+	-webkit-box-pack:center;
+
+	box-align:center;
+	-moz-box-align:center;
+	-webkit-box-align:center;
+
+	text-align: center;
+	font-family: Titillium Web Bold Italic;
+	font-size: 144px;
+}

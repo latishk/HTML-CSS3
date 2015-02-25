@@ -1,0 +1,30 @@
+.code-box-outer {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+}
+
+.code-box {
+	position: relative;
+	width: 96%;
+	margin: 8px auto;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.25);
+	border: none;
+}
+
+.code-box .code {
+	display: block;
+	margin: auto;
+	padding: 12px;
+}
+
+pre {
+	display: inline;
+	font-family: Monaco;
+	font-size: 20px;
+	color: black;
+}

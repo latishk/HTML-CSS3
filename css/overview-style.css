@@ -1,0 +1,8 @@
+#overview {
+	display: none;
+}
+
+.impress-on-overview .step {
+	opacity: 0.02;
+	cursor: pointer;
+}

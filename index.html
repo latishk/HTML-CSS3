@@ -1,0 +1,717 @@
+<!doctype html>
+
+<html>
+
+	<head>
+		<title>CSS 2D and 3D Transforms</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="css/font-faces.css"/>
+		<link rel="stylesheet" href="css/background-style.css"/>
+		<link rel="stylesheet" href="css/no-support-style.css"/>
+		<link rel="stylesheet" href="css/step-style.css"/>
+		<link rel="stylesheet" href="css/slide-style.css"/>
+		<link rel="stylesheet" href="css/overview-style.css"/>
+		<link rel="stylesheet" href="css/title-slide-style.css"/>
+		<link rel="stylesheet" href="css/definitions-slide-style.css"/>
+		<link rel="stylesheet" href="css/one-more-thing-style.css"/>
+		<link rel="stylesheet" href="css/code-box-style.css"/>
+		<link rel="stylesheet" href="css/thank-you-slide-style.css"/>
+		<link rel="stylesheet" href="css/demo-style.css"/>
+		<link rel="stylesheet" href="css/table-style.css"/>
+		<link rel="stylesheet" href="css/co-ordinate-space-style.css"/>
+	</head>
+
+	<body>
+		<div id="impress" data-transition-duration="1000">
+			<div class="no-support-message">
+				Your browser doesn't support impress.js. Try Chrome or Safari.
+			</div>
+
+			<div id="overview" class="step" data-x="0" data-y="0" data-z="10000">
+			</div>
+
+			<div id="title-slide" class="step" data-x="0" data-y="0" data-z="5000">
+				<div class="title-text">
+					<span class="css">Cascading </span><span class="css">Style </span><span class="css">Sheets </span><span class="css3">3</span>
+					<br>
+					<span class="line-two"><span class="two-d"><span class="two">2</span><span class="D">D</span><span class="and">&nbsp;&nbsp;&&nbsp;</span> <span class="three">3</span><span class="d">D</span></span>
+					<br>
+					<span class="transform">Transforms</span>
+				</div>
+			</div>
+
+			<div id="wikipedia-definition" class="step definitions-slide" data-x="800" data-y="0">
+				<div class="slide-title">What is CSS?</div>
+				<hr/>
+				<div class="slide-content">
+					<blockquote>
+						Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation semantics (the look and formatting) of a document written in a markup language.
+						<cite>Wikipedia</cite>
+					</blockquote>
+				</div>
+			</div>
+
+			<div id="w3-definition" class="step definitions-slide" data-x="800" data-y="0" data-rotate-x="180">
+				<div class="slide-title">What is CSS?</div>
+				<hr/>
+				<div class="slide-content">
+					<blockquote>
+						Cascading Style Sheets (CSS) is a simple mechanism for adding style (e.g., fonts, colors, spacing) to Web documents.
+						<cite>W3</cite>
+					</blockquote>
+				</div>
+			</div>
+
+			<div id="abstract" class="step definitions-slide" data-x="800" data-y="0" data-rotate-x="360">
+				<div class="slide-title">Abstract</div>
+				<hr/>
+				<div class="slide-content">
+					<blockquote class="abstract">
+						CSS transforms allows elements styled with CSS to be transformed in two-dimensional or three-dimensional space. This specification is the convergence of the CSS 2D and 3D transforms.
+					</blockquote>
+				</div>
+			</div>
+
+			<div id="where-css" class="step" data-x="1600" data-y="0" data-rotate-x="360">
+				<div class="slide-title">Where does CSS fit in?</div>
+				<hr/>
+				<div class="slide-content">
+					<table id="table">
+						<thead>
+							<tr id="header-row">
+								<th class="blank-column-heading"></th>
+								<th class="column-heading">Human Body</th>
+								<th class="column-heading">Building</th>
+								<th class="column-heading">Remote Control</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th class="row-heading">HTML</th>
+								<td>Skeleton</td>
+								<td>Steel frames</td>
+								<td>Body</td>
+							</tr>
+							<tr>
+								<th class="row-heading">JavaScript</th>
+								<td>Muscles</td>
+								<td>Concrete</td>
+								<td>Buttons</td>
+							</tr>
+							<tr>
+								<th class="row-heading">CSS</th>
+								<td>Skin</td>
+								<td>Paint</td>
+								<td>Button Colour</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div id="co-ordinate-space" class="step" data-x="0" data-y="0">
+				<div class="slide-title"><code>transform</code> Basics Explained</div>
+				<hr/>
+				<div class="slide-content">
+					<div class="img-div">
+						<img src="img/coordinates.svg">
+					</div>
+					<ul class="content-points"/>
+						<li class="point first-point">X-axis increases horizontally to the right.</li>
+						<li class="point second-point">Y-axis increases vertically downwards.</li>
+						<li class="point third-point">Z-axis increases towards the viewer, perpendicular to the plane of the screen.</li>
+						<li class="point fourth-point">Rotation degrees increase in the clockwise direction.</li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="transform-origin-property" class="step" data-x="0" data-y="0">
+				<div class="slide-title"><code>transform-origin</code></div>
+				<hr/>
+				<div class="slide-content">
+					<ul class="content-points">
+						<table id="table">
+							<tr>
+								<td class="first-column">Name:</td>
+								<td><code>transform-origin</code></td>
+							</tr>
+							<tr>
+								<td class="first-column">Value:</td>
+								<td>[ &lt;percentage&gt; | &lt;length&gt; | left | center | right | top | bottom ]</td>
+							</tr>
+							<tr>
+								<td class="first-column">Initial:</td>
+								<td>50% 50%</td>
+							</tr>
+							<tr>
+								<td class="first-column">Applies to:</td>
+								<td>transformable elements</td>
+							</tr>
+						</table>
+
+					</ul>
+				</div>
+			</div>
+
+			<div id="transform-origin-demo" class="step" data-x="800" data-y="1200" data-z="-1500">
+				<div class="slide-title">Demo: transform-origin</div>
+				<hr/>
+				<div class="transform-origin demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a {</pre><br/>
+							<pre>	-webkit-transform-origin: 50% 50%;</pre><br/>
+							<pre>	-moz-transform-origin: 50% 50%;</pre><br/>
+							<pre>	-o-transform-origin: 50% 50%;</pre><br/>
+							<pre>	transform-origin: 50% 50%;</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="transform-origin-alt-demo" class="step" data-x="2000" data-y="1200" data-z="-1500">
+				<div class="slide-title">Demo: transform-origin</div>
+				<hr/>
+				<div class="transform-origin-alt demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a {</pre><br/>
+							<pre>	-webkit-transform-origin: right bottom;</pre><br/>
+							<pre>	-moz-transform-origin: right bottom;</pre><br/>
+							<pre>	-o-transform-origin: right bottom;</pre><br/>
+							<pre>	transform-origin: right bottom;</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="transform-property-2d" class="step" data-x="0" data-y="0">
+				<div class="slide-title">2D Transforms</div>
+				<hr/>
+				<div class="slide-content">
+						Some 2D values of the <code>transform</code> property are given below:<br/>
+						<table id="table">
+							<tr>
+								<td class="first-column">translate(dx, dy)</td>
+								<td>Specifies a 2D translation by horizontal distance dx and vertical distance dy.</th>
+							</tr>
+							<tr>
+								<td class="first-column">translateX(dx)</td>
+								<td>Specifies a 2D translation by horizontal distance dx.</td>
+							</tr>
+							<tr>
+								<td class="first-column">translateY(dy)</td>
+								<td>Specifies a 2D translation by vertical distance dy.</td>
+							</tr>
+							<tr>
+								<td class="first-column">scale(sx, sy)</td>
+								<td>Specifies a 2D scale operation by the [sx, sy] scaling vector. If sy is not provided, it assumes sy = sx</td>
+							</tr>
+							<tr>
+								<td class="first-column">scaleX(sx)</td>
+								<td>Specifies a 2D scale operation using the [sx, 1] scaling vector, where sx is given as the parameter.</td>
+							</tr>
+							<tr>
+								<td class="first-column">scaleY(sy)</td>
+								<td>Specifies a 2D scale operation using the [1, sy] scaling vector, where sy is given as the parameter</td>
+							</tr>
+							<tr>
+								<td class="first-column">rotate(theta)</td>
+								<td>Specifies a 2D rotation by the angle specified in the parameter about the origin of the element.</td>
+							</tr>
+						</table>
+				</div>
+			</div>
+
+			<div id="translate-demo" class="step" data-transition-duration="2000" data-x="1600" data-y="0" data-z="-1500">
+				<div class="slide-title">Demo: translate</div>
+				<hr/>
+				<div class="slide-sontent">
+				<div class="translate demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: translate(40px, 40px);</pre><br/>
+							<pre>	-moz-transform: translate(40px, 40px);</pre><br/>
+							<pre>	-o-transform: translate(40px, 40px);</pre><br/>
+							<pre>	transform: translate(40px, 40px);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<div id="translate-x-demo" class="step" data-x="1600" data-y="600" data-z="-1500" data-rotate-x="180">
+				<div class="slide-title">Demo: translateX</div>
+				<hr/>
+				<div class="translate-x demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: translateX(40px);</pre><br/>
+							<pre>	-moz-transform: translateX(40px);</pre><br/>
+							<pre>	-o-transform: translateX(40px);</pre><br/>
+							<pre>	transform: translateX(40px);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="translate-y-demo" class="step" data-x="1600" data-y="1200" data-z="-1500">
+				<div class="slide-title">Demo: translateY</div>
+				<hr/>
+				<div class="translate-y demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: translateY(40px);</pre><br/>
+							<pre>	-moz-transform: translateY(40px);</pre><br/>
+							<pre>	-o-transform: translateY(40px);</pre><br/>
+							<pre>	transform: translateY(40px);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="scale-demo" class="step" data-transition-duration="2000" data-x="1600" data-y="1200" data-z="-3000" data-rotate-x="-360">
+				<div class="slide-title">Demo: scale</div>
+				<hr/>
+				<div class="scale demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: scale(1.25, 1.25);</pre><br/>
+							<pre>	-moz-transform: scale(1.25, 1.25);</pre><br/>
+							<pre>	-o-transform: scale(1.25, 1.25);</pre><br/>
+							<pre>	transform: scale(1.25, 1.25);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="scale-x-demo" class="step" data-x="1600" data-y="1800" data-z="-3000" data-rotate-x="-540">
+				<div class="slide-title">Demo: scaleX</div>
+				<hr/>
+				<div class="scale-x demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: scaleX(1.25);</pre><br/>
+							<pre>	-moz-transform: scaleX(1.25);</pre><br/>
+							<pre>	-o-transform: scaleX(1.25);</pre><br/>
+							<pre>	transform: scaleX(1.25);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="scale-y-demo" class="step" data-x="1600" data-y="2400" data-z="-3000" data-rotate-x="-360">
+				<div class="slide-title">Demo: scaleY</div>
+				<hr/>
+				<div class="scale-y demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: scaleY(1.25);</pre><br/>
+							<pre>	-moz-transform: scaleY(1.25);</pre><br/>
+							<pre>	-o-transform: scaleY(1.25);</pre><br/>
+							<pre>	transform: scaleY(1.25);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="rotate-demo" class="step" data-transition-duration="2000" data-x="1600" data-y="2400" data-z="-4500" data-rotate-x="-720">
+				<div class="slide-title">Demo: rotate</div>
+				<hr/>
+				<div class="rotate demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: rotate(30deg);</pre><br/>
+							<pre>	-moz-transform: rotate(30deg);</pre><br/>
+							<pre>	-o-transform: rotate(30deg);</pre><br/>
+							<pre>	transform: rotate(30deg);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="skew-demo" class="step" data-transition-duration="2000" data-x="1600" data-y="2400" data-z="-6000" data-rotate-x="-1080">
+				<div class="slide-title">Demo: skew</div>
+				<hr/>
+				<div class="skew demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: skew(15deg, 15deg);</pre><br/>
+							<pre>	-moz-transform: skew(15deg, 15deg);</pre><br/>
+							<pre>	-o-transform: skew(15deg, 15deg);</pre><br/>
+							<pre>	transform: skew(15deg, 15deg);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="skew-x-demo" class="step" data-x="1600" data-y="3000" data-z="-6000" data-rotate-x="-900">
+				<div class="slide-title">Demo: skewX</div>
+				<hr/>
+				<div class="skew-x demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: skewX(15deg);</pre><br/>
+							<pre>	-moz-transform: skewX(15deg);</pre><br/>
+							<pre>	-o-transform: skewX(15deg);</pre><br/>
+							<pre>	transform: skewX(15deg);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="skew-y-demo" class="step" data-x="1600" data-y="3600" data-z="-6000" data-rotate-x="-1080">
+				<div class="slide-title">Demo: skewY</div>
+				<hr/>
+				<div class="skew-y demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: skewY(15deg);</pre><br/>
+							<pre>	-moz-transform: skewY(15deg);</pre><br/>
+							<pre>	-o-transform: skewY(15deg);</pre><br/>
+							<pre>	transform: skewY(15deg);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="perspective-property" class="step" data-x="0" data-y="0">
+				<div class="slide-title"><code>perspective</code></div>
+				<hr/>
+				<div class="slide-content">
+					<ul class="content-points">
+						<table id="table">
+							<tr>
+								<td class="first-column">Name:</td>
+								<td><code>perspective</code></td>
+							</tr>
+							<tr>
+								<td class="first-column">Value:</td>
+								<td>none | length</td>
+							</tr>
+							<tr>
+								<td class="first-column">Initial:</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td class="first-column">Applies to:</td>
+								<td>transformable elements</td>
+							</tr>
+						</table>
+
+					</ul>
+				</div>
+			</div>
+
+			<div id="perspective-demo" class="step" data-x="2000" data-y="2400" data-z="0">
+				<div class="slide-title">Demo: perspective</div>
+				<hr/>
+				<div id="container-with-perspective">
+					<div class="perspective demo-div">
+						a
+					</div>
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-perspective: 200;</pre><br/>
+							<pre>	-moz-perspective: 200;</pre><br/>
+							<pre>	perspective: 200;</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="perspective-origin-property" class="step" data-x="0" data-y="0">
+				<div class="slide-title"><code>perspective-origin</code></div>
+				<hr/>
+				<div class="slide-content">
+					<ul class="content-points">
+						<table id="table">
+							<tr>
+								<td class="first-column">Name:</td>
+								<td><code>perspective-origin</code></td>
+							</tr>
+							<tr>
+								<td class="first-column">Value:</td>
+								<td>[ &lt;percentage&gt; | &lt;length&gt; | left | center | right ]<br/>[ &lt;percentage&gt; | &lt;length&gt; | top | center | bottom ]
+								</td>
+							</tr>
+							<tr>
+								<td class="first-column">Initial:</td>
+								<td>none</td>
+							</tr>
+							<tr>
+								<td class="first-column">Applies to:</td>
+								<td>transformable elements</td>
+							</tr>
+						</table>
+
+					</ul>
+				</div>
+			</div>
+
+			<div id="perspective-origin-demo" class="step" data-x="2800" data-y="2400" data-z="0">
+				<div class="slide-title">Demo: perspective-origin</div>
+				<hr/>
+				<div id="container-with-perspective-alt">
+					<div class="perspective demo-div">
+						a
+					</div>
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-perspective-origin: center top;</pre><br/>
+							<pre>	-moz-perspective-origin: center top;</pre><br/>
+							<pre>	perspective-origin: center top;</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="transform-style" class="step" data-x="0" data-y="0">
+				<div class="slide-title"><code>transform-style</code></div>
+				<hr/>
+				<div class="slide-content">
+					<ul class="content-points">
+						<table id="table">
+							<tr>
+								<td class="first-column">Name:</td>
+								<td><code>transform-style</code></td>
+							</tr>
+							<tr>
+								<td class="first-column">Value:</td>
+								<td>flat | preserve-3d</td>
+							</tr>
+							<tr>
+								<td class="first-column">Initial:</td>
+								<td>flat</td>
+							</tr>
+							<tr>
+								<td class="first-column">Applies to:</td>
+								<td>transformable elements</td>
+							</tr>
+						</table>
+
+					</ul>
+				</div>
+			</div>
+
+			<div id="transform-style-demo" class="step" data-x="2000" data-y="2400" data-z="0">
+				<div class="slide-title">Demo: transform-style</div>
+				<hr/>
+				<div id="parent" class="parent demo-div">
+					<div id="child" class="child demo-div">
+						a
+					</div>
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:active {</pre><br/>
+							<pre>	-webkit-transform-style: preserve-3d;</pre><br/>
+							<pre>	transform-style: preserve-3d;</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="transform-property-3d" class="step" data-x="0" data-y="0">
+				<div class="slide-title">3D Transforms</div>
+				<hr/>
+				<div class="slide-content">
+						Some 3D values of the <code>transform</code> property are given below:<br/>
+						<table id="table">
+							<tr>
+								<td class="first-column">translateZ(dz)</td>
+								<td>Specifies a 3D translation along the Z-axis by distance dz.</th>
+							</tr>
+							<tr>
+								<td class="first-column">rotateX(theta)</td>
+								<td>Specifies a 2D translation by horizontal distance dx.</td>
+							</tr>
+							<tr>
+								<td class="first-column">rotateY(phi)</td>
+								<td>Specifies a 2D translation by vertical distance dy.</td>
+							</tr>
+							<tr>
+								<td class="first-column">rotateZ(psi)</td>
+								<td>Specifies a 2D scale operation by the [sx,sy] scaling vector. If sy is not provided, it assumes sy = sx</td>
+							</tr>
+						</table>
+				</div>
+			</div>
+
+			<div id="translate-z-demo" class="step" data-x="1600" data-y="3600" data-z="-7200" data-rotate-x="-1080">
+				<div class="slide-title">Demo: translateZ</div>
+				<hr/>
+				<div class="translate-z demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: translateZ(150px);</pre><br/>
+							<pre>	-moz-transform: translateZ(150px);</pre><br/>
+							<pre>	transform: translateZ(150px);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="rotate-x-demo" class="step" data-x="1600" data-y="3600" data-z="-8400" data-rotate-x="-1080">
+				<div class="slide-title">Demo: rotateX</div>
+				<hr/>
+				<div class="rotate-x demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: rotateX(360deg);</pre><br/>
+							<pre>	-moz-transform: rotateX(360deg);</pre><br/>
+							<pre>	transform: rotateX(360deg);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="rotate-y-demo" class="step" data-x="1600" data-y="3600" data-z="-9600" data-rotate-x="-1080">
+				<div class="slide-title">Demo: rotateY</div>
+				<hr/>
+				<div class="rotate-y demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: rotateY(360deg);</pre><br/>
+							<pre>	-moz-transform: rotateY(360deg);</pre><br/>
+							<pre>	transform: rotateY(360deg);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="rotate-z-demo" class="step" data-x="1600" data-y="3600" data-z="-11000" data-rotate-x="-1080">
+				<div class="slide-title">Demo: rotateZ</div>
+				<hr/>
+				<div class="rotate-z demo-div">
+					a
+				</div>
+				<div class="code-box-outer">
+					<div class="code-box">
+						<code class="code">
+							<pre>#a:hover {</pre><br/>
+							<pre>	-webkit-transform: rotateZ(360deg);</pre><br/>
+							<pre>	-moz-transform: rotateZ(360deg);</pre><br/>
+							<pre>	transform: rotateZ(360deg);</pre><br/>
+							<pre>}</pre>
+						</code>
+					</div>
+				</div>
+			</div>
+
+			<div id="one-more-thing" class="step one-more-thing" data-x="-2600" data-y="-800" data-rotate-y="90">
+				<p class="one-more-thing-text">
+					One more thing...
+				</p>
+			</div>
+
+			<div id="thank-you" class="step" data-x="-15000" data-y="0" data-rotate-y="90" data-z="0">
+				<p class="thank-you-text">
+					Thank You!
+				</p>
+			</div>
+
+		</div>
+
+		<!--
+		<div class="navbar" style="position: fixed; top:0; left: 0; width: 100%; background-color: black; color:white;">
+			<ul>
+				<li style="float: left;">ABCD&nbsp;</li>
+				<li style="float: left;">ABCD&nbsp;</li>
+				<li style="float: left;">ABCD&nbsp;</li>
+			</ul>
+
+		</div>
+		-->
+
+		<script type="text/javascript" src="js/impress.js"></script>
+		<script>impress().init();</script>
+
+	</body>
+
+</html>
+
+<!-- "&#8942;" is vertical ellipsis -->
